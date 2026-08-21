@@ -491,6 +491,9 @@ public class FactoryPanelBehaviour extends FilteringBehaviour implements MenuPro
 			requests.add(request);
 		}
 
+		if (!crossNetworkData.requestComplete)
+			return;
+
 		// Check if any packager is busy - cancel all
 		for (Multimap<PackagerBlockEntity, PackagingRequest> entry : requests)
 			for (PackagerBlockEntity packager : entry.keySet())
