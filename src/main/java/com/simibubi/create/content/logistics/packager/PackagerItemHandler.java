@@ -37,9 +37,10 @@ public class PackagerItemHandler implements IItemHandlerModifiable {
 			return stack;
 		if (!isItemValid(slot, stack))
 			return stack;
-		if (!blockEntity.unwrapBox(stack, simulate))
+		if (!blockEntity.unwrapBox(stack, true))
 			return stack;
 		if (!simulate) {
+			blockEntity.unwrapBox(stack, false);
 			blockEntity.triggerStockCheck();
 		}
 		return stack.copyWithCount(stack.getCount() - 1);

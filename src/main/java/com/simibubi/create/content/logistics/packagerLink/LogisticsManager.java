@@ -96,6 +96,7 @@ public class LogisticsManager {
 	}
 
 	public static class CrossNetworkData {
+		public boolean requestComplete = true;
 		public boolean hasOrderId = false;
 		public int OrderId = 0;
 		public int usedLinks = 0;
@@ -206,6 +207,9 @@ public class LogisticsManager {
 					finalLinkTracker.setTrue();
 				break;
 			}
+
+			if (remainingCount > 0 && data != null)
+				data.requestComplete = false;
 		}
 
 		if (data != null) {
